@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Jvnyor.openai.model.CompletionRequestDTO;
 import com.Jvnyor.openai.model.CompletionResponseDTO;
 import com.Jvnyor.openai.service.CompletionService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 import jakarta.validation.Valid;
 
@@ -22,7 +21,7 @@ public class CompletionController {
 	private CompletionService service;
 	
 	@PostMapping("/completion")
-	public ResponseEntity<CompletionResponseDTO> completionRequest(@Valid @RequestBody CompletionRequestDTO completionRequest) throws JsonProcessingException {
+	public ResponseEntity<CompletionResponseDTO> completionRequest(@Valid @RequestBody CompletionRequestDTO completionRequest) {
 		return ResponseEntity.ok(service.completionRequest(completionRequest));
 	}
 }
